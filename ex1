@@ -1,0 +1,26 @@
+class BankAccount:
+    def __init__(self, accountNumber, name, balance):
+        self.accountNumber = accountNumber
+        self.name = name
+        self.balance = balance
+    
+    def Deposit(self, amount):
+        self.balance += amount
+        print("Deposit successful. New balance is:", self.balance)
+
+    def Withdrawal(self, amount):
+        if self.balance >= amount:
+            self.balance -= amount
+            print("Withdrawn:", amount, "New balance:", self.balance)
+        else:
+            print("Insufficient balance. Cannot withdraw.")
+
+    def bankFees(self):
+        fees = self.balance * 0.05
+        self.balance -= fees
+        print("Bank fees charged:", fees, "New balance:", self.balance)
+
+    def display(self):
+        print("Account Number:", self.accountNumber)
+        print("Account Holder Name:", self.name)
+        print("Account Balance:", self.balance)
